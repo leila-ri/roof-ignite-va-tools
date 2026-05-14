@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roof Ignite VA Tools</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: #faf9f5;
+      display: flex;
+      height: 100vh;
+    }
+    
+    .sidebar {
+      width: 280px;
+      background: #1a1714;
+      color: white;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
+    
+    .sidebar-header {
+      margin-bottom: 32px;
+    }
+    
+    .sidebar-header h1 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+    
+    .sidebar-header p {
+      font-size: 12px;
+      color: #999;
+      line-height: 1.4;
+    }
+    
+    .nav-section {
+      margin-bottom: 24px;
+    }
+    
+    .nav-section-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    
+    .nav-button {
+      display: block;
+      width: 100%;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      background: rgba(232, 71, 44, 0.15);
+      border: 1px solid rgba(232, 71, 44, 0.3);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+      text-decoration: none;
+    }
+    
+    .nav-button:hover {
+      background: rgba(232, 71, 44, 0.25);
+      border-color: rgba(232, 71, 44, 0.5);
+      transform: translateX(4px);
+    }
+    
+    .nav-button.active {
+      background: #e8472c;
+      border-color: #e8472c;
+      box-shadow: 0 4px 12px rgba(232, 71, 44, 0.3);
+    }
+    
+    .sidebar-footer {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 12px;
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    .sidebar-footer a {
+      color: #e8472c;
+      text-decoration: none;
+    }
+    
+    .sidebar-footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .toolbar {
+      background: white;
+      padding: 16px 24px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .toolbar-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1714;
+    }
+    
+    .toolbar-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    .home-btn {
+      padding: 8px 16px;
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: #1a1714;
+    }
+    
+    .home-btn:hover {
+      background: #e8472c;
+      border-color: #e8472c;
+      color: white;
+    }
+    
+    .content-area {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #faf9f5;
+    }
+    
+    .content-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+    }
+    
+    .content-frame.active {
+      display: block;
+    }
+    
+    .loading {
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 1024px) {
+      .sidebar {
+        width: 240px;
+        padding: 16px;
+      }
+      
+      .sidebar-header h1 {
+        font-size: 16px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      
+      .sidebar {
+        width: 100%;
+        padding: 12px;
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .sidebar-header {
+        margin-bottom: 0;
+        margin-right: 24px;
+        min-width: 150px;
+      }
+      
+      .sidebar-header h1 {
+        font-size: 14px;
+      }
+      
+      .nav-section {
+        display: flex;
+        gap: 8px;
+        margin: 0;
+      }
+      
+      .nav-section-title {
+        display: none;
+      }
+      
+      .nav-button {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin-bottom: 0;
+        flex: 1;
+        min-width: 140px;
+      }
+      
+      .sidebar-footer {
+        display: none;
+      }
+      
+      .main-content {
+        min-height: calc(100vh - 80px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>🔥 Roof Ignite</h1>
+      <p>VA Operations Tools</p>
+    </div>
+    
+    <div class="nav-section">
+      <div class="nav-section-title">Tools</div>
+      <button class="nav-button active" onclick="loadTool('flow', this)">📋 VA Flow Summary</button>
+      <button class="nav-button" onclick="loadTool('playbook', this)">📖 VA Lead Playbook</button>
+    </div>
+    
+    <div class="sidebar-footer">
+      Need help? Check the guides in each tool or return to the <a href="index.html">home page</a>.
+    </div>
+  </div>
+  
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <div class="toolbar">
+      <div class="toolbar-title" id="current-tool">VA Flow Summary</div>
+      <div class="toolbar-actions">
+        <a href="index.html" class="home-btn">← Back to Home</a>
+      </div>
+    </div>
+    
+    <div class="content-area">
+      <iframe id="flow-frame" class="content-frame active" src="flow-summary.html"></iframe>
+      <iframe id="playbook-frame" class="content-frame" src="lead-playbook.html"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function loadTool(tool, button) {
+      // Update active button
+      document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Update iframe display
+      document.querySelectorAll('.content-frame').forEach(frame => frame.classList.remove('active'));
+      
+      if (tool === 'flow') {
+        document.getElementById('flow-frame').classList.add('active');
+        document.getElementById('current-tool').textContent = 'VA Flow Summary';
+      } else if (tool === 'playbook') {
+        document.getElementById('playbook-frame').classList.add('active');
+        document.getElementById('current-tool').textContent = 'VA Lead Playbook';
+      }
+    }
+  </script>
+</body>
+</html>
