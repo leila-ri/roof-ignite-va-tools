@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roof Ignite VA Tools</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #faf9f5 0%, #f5f1e8 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    h1 {
+      font-size: 36px;
+      color: #1a1714;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    
+    .tagline {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    
+    @media (max-width: 640px) {
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .tool-card {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      border-left: 4px solid #e8472c;
+    }
+    
+    .tool-card:hover {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+    
+    .tool-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    
+    .tool-card h2 {
+      font-size: 22px;
+      color: #1a1714;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .tool-card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: #e8472c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .btn:hover {
+      background: #d63a1f;
+    }
+    
+    .btn-secondary {
+      background: #f0f0f0;
+      color: #1a1714;
+    }
+    
+    .btn-secondary:hover {
+      background: #e0e0e0;
+    }
+    
+    footer {
+      text-align: center;
+      color: #999;
+      font-size: 13px;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    .github-link {
+      color: #e8472c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .github-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔥 Roof Ignite VA Tools</h1>
+      <p class="tagline">Quick access to operational guides and resources for your VA team</p>
+    </header>
+    
+    <div class="tools-grid">
+      <a href="./flow-summary.html" class="tool-card">
+        <div class="tool-icon">📋</div>
+        <h2>VA Flow Summary</h2>
+        <p>Scripts, workflows, and processes organized by industry. Full reference for lead handling across roofing, HVAC, and gutter services.</p>
+        <button class="btn">Open Flow</button>
+      </a>
+      
+      <a href="./lead-playbook.html" class="tool-card">
+        <div class="tool-icon">📖</div>
+        <h2>VA Lead Playbook</h2>
+        <p>Complete playbook for VA operations, lead handling, and standard procedures. Your go-to reference for daily VA tasks.</p>
+        <button class="btn">Open Playbook</button>
+      </a>
+    </div>
+    
+    <footer>
+      Hosted on <a href="#" class="github-link">GitHub Pages</a> • Last updated: May 2026
+    </footer>
+  </div>
+</body>
+</html>
